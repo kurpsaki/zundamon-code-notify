@@ -1,13 +1,3 @@
-<!--
-  GitHub About section (repo publishing 用のメタ情報):
-
-  Description:
-    Cross-platform Zundamon voice notifications for Claude Code and Codex CLI. Works on macOS and Windows/WSL2, with optional VOICEVOX realtime synthesis.
-
-  Topics:
-    claude-code, codex-cli, voicevox, zundamon, hooks, notifications, nodejs, wsl2, macos
--->
-
 # zundamon-code-notify
 
 > Claude Code / OpenAI Codex CLI の作業が終わったら、**ずんだもんの声で知らせてくれる** 通知 hook。
@@ -86,7 +76,7 @@ node -v   # v18.x 以上になっていれば OK
 
 ```bash
 # 1. リポジトリをクローン
-git clone https://github.com/<your-account>/zundamon-code-notify.git
+git clone https://github.com/kurpsaki/zundamon-code-notify.git
 cd zundamon-code-notify
 
 # 2. セットアップスクリプトを実行 (権限付与 / 動作確認)
@@ -107,7 +97,7 @@ ZUNDAMON_DEBUG=1 node .claude/hooks/notify.mjs Stop
 
 ```bash
 # WSL2 のシェル内で
-git clone https://github.com/<your-account>/zundamon-code-notify.git
+git clone https://github.com/kurpsaki/zundamon-code-notify.git
 cd zundamon-code-notify
 
 bash scripts/setup.sh
@@ -520,81 +510,3 @@ VOICEVOX およびずんだもんの利用規約は更新される可能性が�
 - ずんだもん音源利用ガイドライン: https://zunko.jp/con_ongen_kiyaku.html
 
 公序良俗に反する用途、政治・宗教活動、情報商材、虚偽情報の拡散、反社会的勢力との関与など、各規約で禁止されている用途では **絶対に使用しないでください**。
-
----
-
-## Examples
-
-### Claude Code 用設定
-
-```jsonc
-{
-  "hooks": {
-    "Stop": [
-      {
-        "type": "command",
-        "command": "ZUNDAMON_USE_VOICEVOX=1 node \"$CLAUDE_PROJECT_DIR/.claude/hooks/notify.mjs\" Stop"
-      }
-    ],
-    "Notification": [
-      {
-        "type": "command",
-        "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/notify.mjs\" Notification"
-      }
-    ],
-    "SubagentStop": [
-      {
-        "type": "command",
-        "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/notify.mjs\" SubagentStop"
-      }
-    ],
-    "UserApproval": [
-      {
-        "type": "command",
-        "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/notify.mjs\" UserApproval"
-      }
-    ]
-  }
-}
-```
-
-### Codex CLI 用設定
-
-```jsonc
-{
-  "hooks": {
-    "Stop": [
-      {
-        "type": "command",
-        "command": "node \"/absolute/path/to/.claude/hooks/notify.mjs\" Stop"
-      }
-    ],
-    "Notification": [
-      {
-        "type": "command",
-        "command": "node \"/absolute/path/to/.claude/hooks/notify.mjs\" Notification"
-      }
-    ],
-    "UserApproval": [
-      {
-        "type": "command",
-        "command": "node \"/absolute/path/to/.claude/hooks/notify.mjs\" UserApproval"
-      }
-    ]
-  }
-}
-```
-
----
-
-## GitHub リポジトリ公開向けメタ情報
-
-GitHub 上で本リポジトリを公開するときに推奨する About 欄の設定です。
-
-- **Description** (推奨):
-
-  > Cross-platform Zundamon voice notifications for Claude Code and Codex CLI. Works on macOS and Windows/WSL2, with optional VOICEVOX realtime synthesis.
-
-- **Topics** (推奨):
-
-  `claude-code`, `codex-cli`, `voicevox`, `zundamon`, `hooks`, `notifications`, `nodejs`, `wsl2`, `macos`
